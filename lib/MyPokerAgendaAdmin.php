@@ -69,12 +69,11 @@ class MyPokerAgendaAdmin
                 require_once(ABSPATH . 'wp-admin/admin-header.php');
             }
         }
-
-        echo $this->template->render('admin.html', array(
-            'parser' => new MyPokerAgendaParser(),
-            'action' => get_option('siteurl').'/wp-admin/options-general.php?page='.$this->slug.'&noheader=true',
-            'rows' => $rows,
-        ));
+        
+        $parser = new MyPokerAgendaParser();
+        $action = get_option('siteurl').'/wp-admin/options-general.php?page='.$this->slug.'&noheader=true';
+        
+        include __DIR__.'/../templates/admin.php';
     }
 
     /**

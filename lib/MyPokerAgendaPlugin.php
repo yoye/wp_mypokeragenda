@@ -2,15 +2,11 @@
 
 class MyPokerAgenda
 {
-
-    protected $twig;
-
     /**
      * __construct
      */
-    public function __construct($twig)
+    public function __construct()
     {
-        $this->twig = $twig;
         if (!get_option('mypokeragenda_install', false)) {
             $this->install();
         }

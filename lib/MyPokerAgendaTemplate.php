@@ -2,19 +2,11 @@
 
 class MyPokerAgendaTemplate
 {
-
-    /**
-     *
-     * @var Twig_Environment
-     */
-    protected $twig;
-
     /**
      * __construct
      */
-    public function __construct(Twig_Environment $twig)
+    public function __construct()
     {
-        $this->twig = $twig;
         add_shortcode('mypokeragenda', array($this, 'renderTag'));
     }
 
@@ -54,17 +46,4 @@ class MyPokerAgendaTemplate
 
         return sprintf('<div class="mypokeragenda-wrapper">%s</div>', $html);
     }
-
-    /**
-     * Render twig template
-     * 
-     * @param string $name
-     * @param array $context
-     * @return string
-     */
-    public function render($name, array $context = array())
-    {
-        return $this->twig->render($name, $context);
-    }
-
 }
